@@ -12,5 +12,24 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "e1ad74a4-f17d-49ea-b3c3-55009fc3b109",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products",
+    "url": "localhost:3000/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-10-16T20:21:39.116Z",
+    "modified": "2022-10-16T21:22:58.475Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"playstation 5\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
