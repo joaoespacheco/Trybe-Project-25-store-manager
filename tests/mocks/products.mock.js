@@ -18,7 +18,18 @@ const singleProduct = {
   name: "Martelo de ferro",
 }
 
+const newProduct = {
+  name: 'playstation 2'
+}
+
+const newProductWithId = {
+  id: 4,
+  name: 'playstation 2'
+}
+
 module.exports = {
   allProducts,
   singleProduct,
-}
+  newProduct,
+  newProductWithId,
+};
