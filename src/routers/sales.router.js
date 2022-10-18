@@ -5,6 +5,10 @@ const validateQuantityField = require('../middlewares/validateQuantityField');
 
 const router = express.Router();
 
+router.get('/', salesProductsController.listAllSales);
+
+router.get('/:id', salesProductsController.listSalesById);
+
 router.post(
   '/',
   validateProductIdField,

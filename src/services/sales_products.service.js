@@ -3,6 +3,21 @@ const salesProductsModels = require('../models/sales_products.models');
 const productsModels = require('../models/products.models');
 const validations = require('./validations/validationsInputValues');
 
+const findAll = async () => {
+  const sales = await salesProductsModels.findAll();
+  return { type: null, message: sales };
+};
+
+const findById = async (saleId) => {
+  const error = validations.validateId(saleId);
+  if (error.type) return error;
+
+  const sales = await salesProductsModels.findByIdWithDate(saleId);
+
+  if (sales.length > 0) return { type: null, message: sales };
+  return { type: 'SALE_NOT_FOUND', message: 'Sale not found' };
+};
+
 const createSale = async (sale) => {
   const error = validations.validateNewSale(sale);
   if (error.type) return error;
@@ -23,5 +38,7 @@ const createSale = async (sale) => {
 };
 
 module.exports = {
+  findAll,
+  findById,
   createSale,
 };
