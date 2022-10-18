@@ -3,11 +3,6 @@ const salesProductsModels = require('../models/sales_products.models');
 const productsModels = require('../models/products.models');
 const validations = require('./validations/validationsInputValues');
 
-const findAll = async () => {
-    const products = await salesProductsModels.findAll();
-    return { type: null, message: products };
-};
-
 const createSale = async (sale) => {
   const error = validations.validateNewSale(sale);
   if (error.type) return error;
@@ -28,6 +23,5 @@ const createSale = async (sale) => {
 };
 
 module.exports = {
-  findAll,
   createSale,
 };

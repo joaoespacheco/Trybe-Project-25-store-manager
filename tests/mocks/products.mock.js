@@ -27,9 +27,33 @@ const newProductWithId = {
   name: 'playstation 2'
 }
 
+const saleProductsDb = [
+  {
+    product_id: 1,
+    quantity: 2,
+  },
+  {
+    product_id: 2,
+    quantity: 10,
+  },
+];
+
+const saleProducts = [
+  {
+    productId: 1,
+    quantity: 2,
+  },
+  {
+    productId: 2,
+    quantity: 10,
+  },
+];
+
 module.exports = {
   allProducts,
   singleProduct,
   newProduct,
   newProductWithId,
+  saleProductsDb,
+  saleProducts,
 };

@@ -41,12 +41,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-10-17T17:53:50.143Z",
-    "modified": "2022-10-17T22:19:37.638Z",
+    "modified": "2022-10-17T23:12:37.010Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 15\n  }\n]",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 1\n  }\n]",
       "form": []
     },
     "tests": []

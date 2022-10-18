@@ -1,5 +1,5 @@
 const express = require('express');
-const salesController = require('../controllers/sales.controller');
+const salesProductsController = require('../controllers/sales_products.controller');
 const validateProductIdField = require('../middlewares/validateProductIdField');
 const validateQuantityField = require('../middlewares/validateQuantityField');
 
@@ -9,7 +9,7 @@ router.post(
   '/',
   validateProductIdField,
   validateQuantityField,
-  salesController.createSale,
+  salesProductsController.createSale,
 );
 
 module.exports = router;
