@@ -87,6 +87,15 @@ const updateResult = {
   changedRows: 0
 }
 
+const deleteResult = {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 0,
+  info: "",
+  serverStatus: 2,
+  warningStatus: 0,
+};
+
 module.exports = {
   allProducts,
   singleProduct,
@@ -97,4 +106,5 @@ module.exports = {
   saleProducts,
   saleById,
   updateResult,
+  deleteResult,
 };
