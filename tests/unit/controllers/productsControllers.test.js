@@ -10,6 +10,7 @@ const {
   listAllProducts,
   listProductById,
   createProduct,
+  updateProduct,
 } = require("../../../src/controllers/products.controller");
 const {
   allProducts,
@@ -118,6 +119,52 @@ describe("Teste de unidade de products.controller", function () {
         message: '"name" length must be at least 5 characters long',
       });
     });
+  });
 
+  describe("Testes relacionados a função PUT", function () {
+    it("Atualizando informações do produto", async function () {
+      const res = {};
+      const req = {
+        body: newProduct,
+        params: { id: 1 },
+      };
+      const product = newProductWithId;
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(productsService, "updateProduct")
+        .resolves({ type: null, message: product });
+
+      await updateProduct(req, res);
+
+      expect(res.status).to.have.been.calledWith(200);
+      expect(res.json).to.have.been.calledWith(product);
+    });
+
+    it("Retorno caso seja inserido um name inválido", async function () {
+      const res = {};
+      const req = {
+        body: { name: 'bola' },
+        params: { id: 1 },
+      };
+      const product = newProductWithId;
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(productsService, "updateProduct")
+        .resolves({
+          type: "INVALID_VALUE",
+          message: '"name" length must be at least 5 characters long',
+        });
+
+      await updateProduct(req, res);
+
+      expect(res.status).to.have.been.calledWith(422);
+      expect(res.json).to.have.been.calledWith({
+        message: '"name" length must be at least 5 characters long',
+      });
+    });
   });
 });
