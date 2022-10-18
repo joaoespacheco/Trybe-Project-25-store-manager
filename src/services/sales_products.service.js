@@ -9,9 +9,6 @@ const findAll = async () => {
 };
 
 const findById = async (saleId) => {
-  const error = validations.validateId(saleId);
-  if (error.type) return error;
-
   const sales = await salesProductsModels.findByIdWithDate(saleId);
 
   if (sales.length > 0) return { type: null, message: sales };
@@ -31,7 +28,10 @@ const createSale = async (sale) => {
   await Promise.all(sale.map(({ productId, quantity }) => (
     salesProductsModels.insert(productId, quantity, currentDateId)
   )));
-  const newSale = await salesProductsModels.findById(currentDateId, ['product_id', 'quantity']);
+  const newSale = await salesProductsModels.findByIdAndColumns(currentDateId, [
+    'product_id',
+    'quantity',
+  ]);
   return {
     type: null,
     message: { id: currentDateId, itemsSold: newSale } };

@@ -10,7 +10,7 @@ const findAll = async () => {
   return camelize(result);
 };
 
-const findById = async (saleId, [...columns]) => {
+const findByIdAndColumns = async (saleId, [...columns]) => {
   const [result] = await connection.execute(
     `SELECT ${columns} FROM sales_products WHERE sale_id = ?`,
     [saleId],
@@ -41,7 +41,7 @@ const insert = async (productId, quantity, saleId) => {
 
 module.exports = {
   findAll,
-  findById,
+  findByIdAndColumns,
   findByIdWithDate,
   insert,
 };
