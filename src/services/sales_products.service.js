@@ -37,8 +37,18 @@ const createSale = async (sale) => {
     message: { id: currentDateId, itemsSold: newSale } };
 };
 
+const removeSale = async (id) => {
+  const validateSale = await salesProductsModels.findByIdWithDate(id);
+  if (validateSale.length === 0) { return { type: 'SALE_NOT_FOUND', message: 'Sale not found' }; }
+
+  await salesProductsModels.remove(id);
+  await salesModels.remove(id);
+  return { type: null, message: '' };
+};
+
 module.exports = {
   findAll,
   findById,
   createSale,
+  removeSale,
 };
