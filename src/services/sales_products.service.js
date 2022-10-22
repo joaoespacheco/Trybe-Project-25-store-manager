@@ -46,9 +46,35 @@ const removeSale = async (id) => {
   return { type: null, message: '' };
 };
 
+const updateSale = async (saleId, products) => {
+  const error = validations.validateNewSale(products);
+  if (error.type) return error;
+
+  const validateSale = await salesProductsModels.findByIdWithDate(saleId);
+  if (validateSale.length === 0) { return { type: 'SALE_NOT_FOUND', message: 'Sale not found' }; }
+
+  const allProducts = await productsModels.findAll();
+  const productsSales = products.every(({ productId }) =>
+    allProducts.some(({ id }) => id === productId));
+  if (!productsSales) { return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' }; }
+
+  await Promise.all(
+    products.map(({ productId, quantity }) =>
+      salesProductsModels.update(productId, quantity, saleId)),
+  );
+
+  const salesUpdated = await salesProductsModels
+    .findByIdAndColumns(saleId, ['product_Id', 'quantity']);
+  return {
+    type: null,
+    message: { saleId, itemsUpdated: salesUpdated },
+  };
+};
+
 module.exports = {
   findAll,
   findById,
   createSale,
   removeSale,
+  updateSale,
 };
