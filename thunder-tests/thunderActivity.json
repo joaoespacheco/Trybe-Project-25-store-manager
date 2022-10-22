@@ -111,5 +111,105 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "3837ece8-1cad-421c-9f03-77640a6b0d5f",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/search?q=Mart",
+    "url": "localhost:3000/products/search?q=Mart",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-10-22T21:30:02.281Z",
+    "modified": "2022-10-22T21:31:00.201Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Mart",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "2fd185c9-1f31-4b7b-bdab-a70038affc1f",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/search?q=Martelo",
+    "url": "localhost:3000/products/search?q=Martelo",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-10-22T21:31:41.311Z",
+    "modified": "2022-10-22T21:36:09.129Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Martelo",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "2d9bc076-f5d4-4ed0-b5c1-da6606f730b7",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/search?q=a",
+    "url": "localhost:3000/products/search?q=a",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-10-22T21:36:17.159Z",
+    "modified": "2022-10-22T21:37:14.704Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "a",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "3d5f74d3-24ac-49d8-b272-8abed2ae4b89",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/search?q=e",
+    "url": "localhost:3000/products/search?q=e",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-10-22T21:36:41.235Z",
+    "modified": "2022-10-22T21:36:41.299Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "e",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "47e03a01-9e90-4c97-b169-c80d6a902883",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/search?q=esc",
+    "url": "localhost:3000/products/search?q=esc",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-10-22T21:36:46.188Z",
+    "modified": "2022-10-22T21:37:08.925Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "esc",
+        "isPath": false
+      }
+    ],
+    "tests": []
   }
 ]
