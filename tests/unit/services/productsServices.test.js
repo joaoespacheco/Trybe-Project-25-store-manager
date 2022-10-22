@@ -7,6 +7,7 @@ const {
   findById,
   createProduct,
   updateProduct,
+  removeProduct,
 } = require("../../../src/services/products.service");
 const {
   allProducts,
@@ -14,6 +15,7 @@ const {
   newProduct,
   newProductWithId,
   updateResult,
+  deleteResult,
 } = require("../../mocks/products.mock");
 
 describe("Teste de unidade de products.service", function () {
@@ -91,7 +93,7 @@ describe("Teste de unidade de products.service", function () {
     });
 
     it("Retorno caso seja inserido um name inválido", async function () {
-      const result = await updateProduct(1, 'bola');
+      const result = await updateProduct(1, "bola");
 
       expect(result.type).to.equal("INVALID_VALUE");
       expect(result.message).to.equal(
@@ -102,10 +104,28 @@ describe("Teste de unidade de products.service", function () {
     it("Retorno caso seja inserido um id inválido", async function () {
       sinon.stub(productsModels, "findById").resolves(undefined);
 
-      const result = await updateProduct(10, 'Máscara do Máskara');
+      const result = await updateProduct(10, "Máscara do Máskara");
 
       expect(result.type).to.equal("PRODUCT_NOT_FOUND");
       expect(result.message).to.equal("Product not found");
     });
+  });
+
+  describe("Testes relacionados a função DELETE", function () {
+    it("Deletando um produto", async function () {
+      sinon.stub(productsModels, "remove").resolves(deleteResult);
+
+      const result = await removeProduct(1);
+
+      expect(result.type).to.equal(null);
+      expect(result.message).to.equal('');
+    });
+
+    it("Retorno quando o Id não existe", async function () {
+      const result = await removeProduct(99);
+
+      expect(result.type).to.equal("PRODUCT_NOT_FOUND");
+      expect(result.message).to.equal("Product not found");
+    });    
   });
 });

@@ -3,7 +3,13 @@ const sinon = require("sinon");
 
 const productsModels = require("../../../src/models/products.models");
 const connection = require("../../../src/models/connection");
-const {allProducts, singleProduct, newProduct, updateResult} = require("../../mocks/products.mock");
+const {
+  allProducts,
+  singleProduct,
+  newProduct,
+  updateResult,
+  deleteResult,
+} = require("../../mocks/products.mock");
 
 describe("Teste de unidade de products.models", function () {
   afterEach(sinon.restore);
@@ -20,21 +26,29 @@ describe("Teste de unidade de products.models", function () {
       const result = await productsModels.findById(3);
       expect(result).to.be.deep.equal(singleProduct);
     });
-  })
+  });
 
   describe("Testes relacionados a função POST", function () {
     it("Cadastrando um novo produto", async function () {
       sinon.stub(connection, "execute").resolves([{ insertId: 4 }]);
       const result = await productsModels.insert(newProduct);
       expect(result).to.equal(4);
-    })
-  })
+    });
+  });
 
   describe("Testes relacionados a função PUT", function () {
     it("Atualizando informações do produto", async function () {
       sinon.stub(connection, "execute").resolves([updateResult]);
-      const result = await productsModels.update(1, 'Martelo do batman');
+      const result = await productsModels.update(1, "Martelo do batman");
       expect(result).to.equal(updateResult);
-    })
-  })
+    });
+  });
+
+  describe("Testes relacionados a função DELETE", function () {
+    it("Deletando um produto", async function () {
+      sinon.stub(connection, "execute").resolves([deleteResult]);
+      const result = await productsModels.remove(1);
+      expect(result).to.equal(deleteResult);
+    });
+  });
 });
