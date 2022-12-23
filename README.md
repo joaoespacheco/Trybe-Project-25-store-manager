@@ -2,8 +2,6 @@
 
 ## 📄 Sobre:
 
-![image](https://user-images.githubusercontent.com/99846604/209247395-9384315d-0bc6-4178-9617-e9fa9f6084d8.png)
-
 Projeto desenvolvido durante o módulo de back-end do curso de desenvolvimento web da [Trybe](https://www.betrybe.com/).
 
 Neste projeto foi desenvolvida uma API RESTful de gerenciamento de vendas no formato dropshipping. Dentro da API é possível criar, visualizar, deletar e atualizar os produtos e as vendas.
@@ -49,7 +47,13 @@ Aprovado com 100% de desempenho em todos os requisitos
 18. Crie endpoint products/search?q=searchTerm </br>
 19. Desenvolva testes que cubram no mínimo 50% das camadas da sua aplicação </br>
 20. Desenvolva testes que cubram no mínimo 60% das camadas da sua aplicação </br>
+</details>
 
+<details>
+<summary><strong>Diagrama Entidade-Relacionamento</strong></summary>
+ 
+![image](https://user-images.githubusercontent.com/99846604/209247552-b1c6ddba-8506-44c3-ae2f-d40bbd496f99.png)
+ 
 </details>
 </br>
 
